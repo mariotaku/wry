@@ -68,6 +68,7 @@ class RustWebView(context: Context, val initScripts: Array<String>, val id: Stri
     }
 
     fun evalScript(id: Int, script: String) {
+        Logger.info("RustWebView", "evalScript($id): $script")
         post {
             super.evaluateJavascript(script) { result ->
                 onEval(id, result)
